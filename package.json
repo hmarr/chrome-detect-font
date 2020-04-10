@@ -1,0 +1,22 @@
+{
+  "name": "chrome-detect-font",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev:watch": "webpack-cli --mode development --watch",
+    "prod:build": "webpack-cli --mode production && zip -r detect-font.zip dist"
+  },
+  "dependencies": {
+    "css-list-helpers": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.104",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "ts-loader": "6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
