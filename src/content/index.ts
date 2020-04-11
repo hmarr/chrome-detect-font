@@ -3,6 +3,11 @@ import InfoPanel from "./info-panel";
 import { splitByCommas } from "css-list-helpers";
 
 const main = () => {
+  const shadowContainer = document.createElement("div");
+  document.body.appendChild(shadowContainer);
+
+  const shadowRoot = shadowContainer.attachShadow({ mode: "open" });
+
   const picker = new ElementPicker();
   const infoPanel = new InfoPanel();
 
@@ -13,7 +18,7 @@ const main = () => {
     }
     active = true;
 
-    picker.start({
+    picker.start(shadowRoot, {
       onClick: (el) => {
         picker.stop();
         infoPanel.removeFromDOM();
@@ -36,7 +41,7 @@ const main = () => {
       },
     });
 
-    infoPanel.addToDOM();
+    infoPanel.addToDOM(shadowRoot);
     infoPanel.setText("Hover over an element to see its font");
   };
 

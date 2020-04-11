@@ -17,8 +17,8 @@ export default class ElementOverlay {
     this.el.style.zIndex = "2147483647";
   }
 
-  addToDOM() {
-    document.body.appendChild(this.el);
+  addToDOM(parent: Node) {
+    parent.appendChild(this.el);
   }
 
   removeFromDOM() {

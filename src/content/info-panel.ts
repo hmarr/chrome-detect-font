@@ -38,10 +38,8 @@ export default class InfoPanel {
     this.el.innerText = text;
   }
 
-  addToDOM() {
-    if (!document.body.contains(this.el)) {
-      document.body.appendChild(this.el);
-    }
+  addToDOM(parent: Node) {
+    parent.appendChild(this.el);
   }
 
   removeFromDOM() {

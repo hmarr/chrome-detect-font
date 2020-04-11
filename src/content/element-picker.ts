@@ -19,7 +19,7 @@ export default class ElementPicker {
     this.overlay = new ElementOverlay();
   }
 
-  start(callbacks: ElementCallbacks): boolean {
+  start(parent: Node, callbacks: ElementCallbacks): boolean {
     if (this.callbacks) {
       return false;
     }
@@ -28,7 +28,7 @@ export default class ElementPicker {
     document.addEventListener("mousemove", this.handleMouseMove, true);
     document.addEventListener("click", this.handleClick, true);
 
-    this.overlay.addToDOM();
+    this.overlay.addToDOM(parent);
 
     this.tick();
 
