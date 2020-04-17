@@ -1,10 +1,13 @@
-# Chrome extension for quickly showing which fonts are in use
+# Detect fonts in Chrome
 
-Click the icon in the browser toolbar to activate font detection mode, and
-hover over parts of the page to reveal which font is being used.
+![Chrome Store](https://img.shields.io/chrome-web-store/v/mpljfgaicpdodihppfoolcididbkalce?color=blue)
 
-Yes you can do this with the Chrome web inspector, but this is just one click
-away.
+Click the icon in the browser toolbar to activate font detection mode, and hover over parts of the page to reveal which font is being used.
+
+## Why does this exist?
+You can already do this with the Chrome web inspector, but this extension makes discovering fonts just one click away.
+
+While there are similar extensions in the Chrome Store, they generally ask for permission to "read and change all data on the websites that you visit", whereas this extension only activates when you click the button, so doesn't require elevated permissions.
 
 ![Demo gif](https://user-images.githubusercontent.com/110275/79029506-9396e880-7b8c-11ea-8f7a-5a9a4f042507.gif)
 
