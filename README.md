@@ -1,6 +1,6 @@
 # Detect fonts in Chrome
 
-![Chrome Store](https://img.shields.io/chrome-web-store/v/mpljfgaicpdodihppfoolcididbkalce?color=blue&logo=google-chrome&logoColor=white)
+[![Chrome Store](https://img.shields.io/chrome-web-store/v/mpljfgaicpdodihppfoolcididbkalce?color=blue&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore/detail/mpljfgaicpdodihppfoolcididbkalce)
 
 Click the icon in the browser toolbar to activate font detection mode, and hover over parts of the page to reveal which font is being used. The primary font will be shown in bold, followed by the fallback fonts. It just looks at the font-family CSS property, so it's not guaranteed to be correct.
 
