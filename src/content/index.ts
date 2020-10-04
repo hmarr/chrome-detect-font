@@ -1,9 +1,12 @@
-import ElementPicker from "./element-picker";
+import { ElementPicker } from "pick-dom-element";
 import InfoPanel from "./info-panel";
 import { splitByCommas } from "css-list-helpers";
 
 const main = () => {
   const shadowContainer = document.createElement("div");
+  shadowContainer.style.position = "absolute";
+  shadowContainer.style.top = "0px";
+  shadowContainer.style.left = "0px";
   document.body.appendChild(shadowContainer);
 
   const shadowRoot = shadowContainer.attachShadow({ mode: "open" });
@@ -18,8 +21,10 @@ const main = () => {
     }
     active = true;
 
-    picker.start(shadowRoot, {
-      onClick: (el) => {
+    picker.start({
+      parentElement: shadowRoot,
+      useShadowDOM: false,
+      onClick: () => {
         picker.stop();
         infoPanel.removeFromDOM();
         active = false;
