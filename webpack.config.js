@@ -28,6 +28,8 @@ module.exports = {
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
 
     // Copy over the manifest.json
-    new CopyWebpackPlugin([{ from: "manifest.json" }, { from: "images/*" }]),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "manifest.json" }, { from: "images/*" }],
+    }),
   ],
 };
