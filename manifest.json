@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Detect Font",
-  "version": "0.2",
+  "version": "0.3",
   "author": "Harry Marr",
   "description": "Detect fonts used in web pages",
   "homepage_url": "https://github.com/hmarr/chrome-detect-font",
