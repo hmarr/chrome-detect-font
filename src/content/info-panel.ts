@@ -1,5 +1,6 @@
 export default class InfoPanel {
   el: HTMLDivElement;
+  uncoveredArea?: DOMRect;
 
   constructor() {
     this.el = document.createElement("div");
@@ -26,6 +27,7 @@ export default class InfoPanel {
     this.el.style.top = "50px";
     this.el.style.width = "50%";
     this.el.style.transform = "translateX(-50%)";
+    this.el.style.transition = "transform 0.1s";
     this.el.style.zIndex = "2147483647";
   }
 
@@ -40,9 +42,38 @@ export default class InfoPanel {
 
   addToDOM(parent: Node) {
     parent.appendChild(this.el);
+    document.addEventListener('mousemove', (ev: MouseEvent) => {
+      if (!this.uncoveredArea) {
+        const rect = this.el.getBoundingClientRect();
+        if (mouseWithinRect(ev, rect)) {
+          rect.y -= 15;
+          rect.height += 30;
+          rect.x -= 15;
+          rect.width += 30;
+
+          this.el.style.transform = `translateX(-50%) translateY(${rect.height}px)`;
+          this.uncoveredArea = rect;
+        }
+      } else {
+        if (!mouseWithinRect(ev, this.uncoveredArea)) {
+          this.el.style.transform = 'translateX(-50%)';
+          this.el.ontransitionend = () => {
+            delete this.uncoveredArea;
+            this.el.ontransitionend = null;
+          };
+        }
+      }
+    });
   }
 
   removeFromDOM() {
     this.el.remove();
   }
+}
+
+function mouseWithinRect(ev: MouseEvent, rect: DOMRect): boolean {
+  return ev.clientX > rect.left &&
+    ev.clientX < rect.right &&
+    ev.clientY > rect.top &&
+    ev.clientY < rect.bottom;
 }
