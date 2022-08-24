@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "css-list-helpers": "^2.0.0",
-    "pick-dom-element": "^0.2.1"
+    "pick-dom-element": "^0.2.2"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.195",
