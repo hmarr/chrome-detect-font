@@ -8,10 +8,13 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-const runContentScript = (tabId: number) => {
-  chrome.tabs.executeScript({ file: "./content.js" }, () => {
-    chrome.tabs.sendMessage(tabId, {});
+const runContentScript = async (tabId: number) => {
+  await chrome.scripting.executeScript({
+    target: { tabId },
+    files: ['content.js']
   });
+
+  chrome.tabs.sendMessage(tabId, {});
 };
 
 chrome.contextMenus.onClicked.addListener((_info, tab) => {
@@ -20,7 +23,7 @@ chrome.contextMenus.onClicked.addListener((_info, tab) => {
   }
 });
 
-chrome.browserAction.onClicked.addListener((tab) => {
+chrome.action.onClicked.addListener((tab) => {
   if (tab.id) {
     runContentScript(tab.id);
   }

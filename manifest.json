@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Detect Font",
   "version": "0.3",
   "author": "Harry Marr",
@@ -13,11 +13,14 @@
     "128": "images/icon-128.png"
   },
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "background.js"
   },
-  "permissions": ["contextMenus", "activeTab"],
-  "browser_action": {
+  "permissions": [
+    "contextMenus",
+    "scripting",
+    "activeTab"
+  ],
+  "action": {
     "default_icon": {
       "16": "images/icon-16.png",
       "24": "images/icon-24.png",
