@@ -11,6 +11,10 @@ const main = () => {
 
   const shadowRoot = shadowContainer.attachShadow({ mode: "open" });
 
+  const styleReset = document.createElement("div");
+  styleReset.style.all = "initial";
+  shadowRoot.appendChild(styleReset);
+
   const picker = new ElementPicker();
   const infoPanel = new InfoPanel();
 
@@ -22,7 +26,7 @@ const main = () => {
     active = true;
 
     picker.start({
-      parentElement: shadowRoot,
+      parentElement: styleReset,
       useShadowDOM: false,
       onClick: () => {
         picker.stop();
@@ -46,7 +50,7 @@ const main = () => {
       },
     });
 
-    infoPanel.addToDOM(shadowRoot);
+    infoPanel.addToDOM(styleReset);
     infoPanel.setText("Hover over an element to see its font");
   };
 
