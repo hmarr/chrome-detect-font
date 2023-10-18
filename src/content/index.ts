@@ -7,6 +7,8 @@ const main = () => {
   shadowContainer.style.position = "absolute";
   shadowContainer.style.top = "0px";
   shadowContainer.style.left = "0px";
+  shadowContainer.style.margin = "0px";
+  shadowContainer.style.padding = "0px";
   document.body.appendChild(shadowContainer);
 
   const shadowRoot = shadowContainer.attachShadow({ mode: "open" });
